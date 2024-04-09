@@ -1,11 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Генерація та Сортування Масиву</title>
 </head>
 <body>
-    
+    <script>
+        function generateRandomArray(size) {
+            const array = [];
+            for (let i = 0; i < size; i++) {
+                array.push(Math.floor(Math.random() * 100) + 1);
+            }
+            return array;
+        }
+
+        function sortArray(array) {
+            return array.sort((a, b) => a - b);
+        }
+
+        const randomArray = generateRandomArray(20);
+        console.log('Несортований масив:', randomArray);
+        const sortedArray = sortArray(randomArray);
+        console.log('Сортований масив:', sortedArray);
+    </script>
 </body>
 </html>

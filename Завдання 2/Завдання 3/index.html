@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Динамічний Div</title>
+    <style>
+        #dynamicDiv {
+            width: 30px;
+            background-color: blue;
+            margin-top: 10px;
+            position: relative; /* Додано для можливості переміщення */
+            left: 0px; /* Початкова позиція */
+        }
+    </style>
+</head>
+<body>
+
+    <label for="heightSelect">Висота:</label>
+    <select id="heightSelect">
+        <option value="25px">25px</option>
+        <option value="45px">45px</option>
+        <option value="65px">65px</option>
+    </select>
+    <button onclick="generateDiv()">Згенерувати</button>
+
+    <!-- Кнопки для переміщення блоку -->
+    <button onclick="moveLeft()">Посунути вліво</button>
+    <button onclick="moveRight()">Посунути вправо</button>
+
+    <script>
+        function generateDiv() {
+            var selectedHeight = document.getElementById('heightSelect').value;
+            var existingDiv = document.getElementById('dynamicDiv');
+            if (existingDiv) {
+                existingDiv.style.height = selectedHeight;
+            } else {
+                var div = document.createElement('div');
+                div.id = 'dynamicDiv';
+                div.style.height = selectedHeight;
+                document.body.appendChild(div);
+            }
+        }
+
+        function moveLeft() {
+            var div = document.getElementById('dynamicDiv');
+            if (div) {
+                div.style.left = (parseInt(div.style.left, 10) - 20) + 'px';
+            }
+        }
+
+        function moveRight() {
+            var div = document.getElementById('dynamicDiv');
+            if (div) {
+                div.style.left = (parseInt(div.style.left, 10) + 20) + 'px';
+            }
+        }
+    </script>
+
+</body>
+</html>
